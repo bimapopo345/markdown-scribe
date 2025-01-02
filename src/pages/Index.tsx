@@ -30,7 +30,35 @@ const Index = () => {
           messages: [
             {
               role: "system",
-              content: "You are a helpful assistant that converts text into well-formatted README.md content following standard README conventions. Include all necessary sections like Project Title, Description, Features, Installation, Usage, etc. Format the output in proper markdown.",
+              content: `You are a helpful assistant that converts text into well-formatted README.md content following professional README conventions. 
+              
+              Important formatting rules:
+              1. Use proper markdown syntax with clear section hierarchy
+              2. For any code blocks or commands, use triple backticks with the appropriate language specification, e.g.:
+                 \`\`\`bash
+                 npm install
+                 npm run dev
+                 \`\`\`
+              3. For installation steps, always include:
+                 - Clear step numbering
+                 - Command blocks with 'bash' specification
+                 - Environment setup instructions if needed
+                 - Both npm and pnpm commands where applicable
+              
+              Include these essential sections:
+              - Project Title and Description
+              - Features and Functionality (with bullet points)
+              - Technology Stack (categorized into Backend, Frontend, Other Tools)
+              - Prerequisites
+              - Detailed Installation Instructions (with code blocks)
+              - Usage Guide
+              - API Documentation (if applicable)
+              - Deployment Instructions
+              - Contributing Guidelines
+              - License
+              - Contact/Support Information
+              
+              Make the content comprehensive yet concise, and ensure all code blocks are properly formatted.`,
             },
             {
               role: "user",
