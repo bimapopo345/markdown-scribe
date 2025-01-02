@@ -52,11 +52,11 @@ export const getMarkdownPrompt = () => `You are a helpful assistant that convert
      - [Technology Stack](#technology-stack)
      - [Prerequisites](#prerequisites)
      - [Installation](#installation)
-     - [Usage](#usage)
+     - [Usage Guide](#usage-guide)
      - [API Documentation](#api-documentation)
-     - [Contributing](#contributing)
+     - [Contributing Guidelines](#contributing-guidelines)
      - [License](#license)
-     - [Contact/Support](#contactsupport)
+     - [Contact/Support Information](#contactsupport-information)
 4. **Features** (bullet points)
 5. **Technology Stack** (categorized by frontend, backend, etc.)
 6. **Prerequisites**
@@ -84,15 +84,14 @@ export const getMarkdownPrompt = () => `You are a helpful assistant that convert
 - [Technology Stack](#technology-stack)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Usage Guide](#usage-guide)
 - [API Documentation](#api-documentation)
-- [Contributing](#contributing)
+- [Contributing Guidelines](#contributing-guidelines)
 - [License](#license)
-- [Contact/Support](#contactsupport)
+- [Contact/Support Information](#contactsupport-information)
 
 Make the content comprehensive yet concise, and ensure all code blocks are properly formatted for the specific technology being used.
 `;
-
 
 <lov-write file_path="src/pages/Index.tsx">
 import { useState } from "react";
