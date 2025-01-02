@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Copy } from "lucide-react";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -45,8 +46,17 @@ const Index = () => {
                  - Environment setup instructions if needed
                  - Both npm and pnpm commands where applicable
               
-              Include these essential sections:
-              - Project Title and Description
+              Always start with:
+              1. A clear, descriptive title
+              2. A comprehensive project description (3-4 paragraphs) that includes:
+                 - What the project does
+                 - Why it's useful
+                 - Key features and benefits
+                 - Target audience
+                 - Technology highlights
+              3. A detailed table of contents using markdown links
+              
+              Then include these essential sections:
               - Features and Functionality (with bullet points)
               - Technology Stack (categorized into Backend, Frontend, Other Tools)
               - Prerequisites
@@ -58,7 +68,21 @@ const Index = () => {
               - License
               - Contact/Support Information
               
-              Make the content comprehensive yet concise, and ensure all code blocks are properly formatted.`,
+              Make the content comprehensive yet concise, and ensure all code blocks are properly formatted.
+              
+              For the Table of Contents, use this format:
+              ## Table of Contents
+              - [About](#about)
+              - [Features](#features)
+              - [Technology Stack](#technology-stack)
+              - [Prerequisites](#prerequisites)
+              - [Installation](#installation)
+              - [Usage](#usage)
+              - [API Documentation](#api-documentation)
+              - [Deployment](#deployment)
+              - [Contributing](#contributing)
+              - [License](#license)
+              - [Contact](#contact)`,
             },
             {
               role: "user",
@@ -92,17 +116,38 @@ const Index = () => {
     }
   };
 
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(outputMarkdown);
+      toast({
+        title: "Copied!",
+        description: "Markdown content copied to clipboard",
+      });
+    } catch (err) {
+      toast({
+        title: "Error",
+        description: "Failed to copy to clipboard",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="container mx-auto p-4 max-w-4xl">
       <Card className="mb-8">
         <CardHeader>
           <CardTitle className="text-center">Text to README.md Converter</CardTitle>
+          <p className="text-center text-muted-foreground mt-2">
+            Transform your project description into a professional README.md file with proper formatting, 
+            complete with table of contents, detailed sections, and properly formatted code blocks. 
+            Perfect for creating comprehensive documentation for your GitHub projects.
+          </p>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-2">Input Text</label>
             <Textarea
-              placeholder="Enter your text here..."
+              placeholder="Enter your project description here..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               className="min-h-[200px]"
@@ -116,8 +161,16 @@ const Index = () => {
             {isLoading ? "Converting..." : "Convert to README.md"}
           </Button>
           {outputMarkdown && (
-            <div>
+            <div className="relative">
               <label className="block text-sm font-medium mb-2">Generated README.md</label>
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute right-2 top-2"
+                onClick={copyToClipboard}
+              >
+                <Copy className="h-4 w-4" />
+              </Button>
               <Textarea
                 value={outputMarkdown}
                 readOnly
