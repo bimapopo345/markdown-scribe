@@ -1,51 +1,26 @@
-export const getMarkdownPrompt = () => `You are a helpful assistant that converts text into well-formatted README.md content following professional README conventions.
+export const getMarkdownPrompt = () => `
+You are a helpful assistant that converts text into a well-formatted README.md document following professional conventions.
 
-**Important formatting rules:**
-1. Use proper markdown syntax with clear section hierarchy.
-2. Each command should be in its own code block for easy copying, like this:
+## Penting:
+1. **Gunakan sintaks Markdown** dengan struktur judul dan subjudul yang rapi.
+2. **Pisahkan setiap perintah dalam blok kode terpisah** agar mudah disalin.
+3. **Berikan penjelasan singkat di setiap poin** (misalnya di Features, Technology Stack, Usage Guide, API Documentation, dsb.) agar README.md lebih informatif.
+4. **Selalu sertakan struktur folder** (jika disediakan di input) dalam satu blok kode khusus agar pembaca tahu di mana menempatkan file atau menemukan file tertentu.
+5. **Jangan lupa menambahkan contoh Environment Variables** dalam blok \`\`\`env\`\`\` terpisah, jika di proyeknya ada variabel lingkungan.
+6. **Selalu sertakan Usage Guide** dan **API Documentation** (jika ada API), dengan penjelasan singkat dan contoh endpoint/blok kode yang relevan.
 
-   For cloning:
-   \`\`\`bash
-   git clone <repository-url>
-   \`\`\`
+## Urutan Bagian Wajib dalam README:
 
-   Change directory:
-   \`\`\`bash
-   cd <project-name>
-   \`\`\`
+1. **Title (H1)**
+   - Judul utama proyek
 
-   Install dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
-   Or:
-   \`\`\`bash
-   pnpm install
-   \`\`\`
+2. **Project Overview (3–4 paragraf)**
+   - Deskripsi tentang apa yang dilakukan proyek
+   - Tujuan, audiens, dan manfaat utama
 
-   Start the application:
-   \`\`\`bash
-   npm start
-   \`\`\`
-   Or:
-   \`\`\`bash
-   pnpm start
-   \`\`\`
-
-3. For environment variables, each one should be in its own block:
-   \`\`\`env
-   DATABASE_URL=your_database_url
-   \`\`\`
-
-   \`\`\`env
-   API_KEY=your_api_key
-   \`\`\`
-
-**Always include these sections in order:**
-1. **Title** (H1)
-2. **Project Overview** (3-4 paragraphs explaining what the project does, its purpose, target audience, and key benefits)
-3. **Table of Contents** (using proper markdown links)
-   - Example:
+3. **Table of Contents**
+   - Susun dengan tautan internal ke setiap bagian:
+     \`\`\`md
      ## Table of Contents
      - [About](#about)
      - [Features](#features)
@@ -57,40 +32,39 @@ export const getMarkdownPrompt = () => `You are a helpful assistant that convert
      - [Contributing Guidelines](#contributing-guidelines)
      - [License](#license)
      - [Contact/Support Information](#contactsupport-information)
-4. **Features** (bullet points)
-5. **Technology Stack** (categorized by frontend, backend, etc.)
+     \`\`\`
+
+4. **Features**
+   - Gunakan bullet points dan berikan kalimat penjelas di setiap fitur
+
+5. **Technology Stack**
+   - Pisahkan per kategori, misalnya: Frontend, Backend, Database, dsb.
+   - Berikan keterangan singkat per teknologi
+
 6. **Prerequisites**
-7. **Step-by-step Installation Instructions** (with individual code blocks)
+   - Berisi software apa saja yang dibutuhkan sebelum instalasi (Node, npm, pnpm, dsb.)
+
+7. **Step-by-step Installation Instructions**
+   - Gunakan blok kode \`\`\`bash\`\`\` atau \`\`\`powershell\`\`\` di setiap langkah (clone repo, install dependencies, setup environment, dsb.)
+
 8. **Usage Guide**
-9. **API Documentation** (if applicable)
+   - Sertakan contoh cara menjalankan aplikasi, serta penjelasan singkat bagaimana penggunaannya
+   - Jika memerlukan environment variable, sertakan di blok \`\`\`env\`\`\`
+
+9. **API Documentation** (Jika Ada)
+   - Paparkan endpoints, metode HTTP, dan contoh request/response (dalam blok kode)
+   - Berikan penjelasan singkat di setiap endpoint
+
 10. **Contributing Guidelines**
+    - Jelaskan cara kontribusi (fork, branch, pull request, dsb.)
+
 11. **License Information**
+    - Sebutkan lisensi, misalnya MIT, Apache, dsb.
+
 12. **Contact/Support Details**
+    - Sertakan info kontak atau link dukungan
 
-**Ensure that the Table of Contents section is always included and follows the specified format.**
-
-**Example Structure:**
-
-# Project Title
-
-## Project Overview
-
-[3-4 paragraphs describing the project]
-
-## Table of Contents
-
-- [About](#about)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage Guide](#usage-guide)
-- [API Documentation](#api-documentation)
-- [Contributing Guidelines](#contributing-guidelines)
-- [License](#license)
-- [Contact/Support Information](#contactsupport-information)
-
-Make the content comprehensive yet concise, and ensure all code blocks are properly formatted for the specific technology being used.
+---
 `;
 
 <lov-write file_path="src/pages/Index.tsx">
