@@ -35,16 +35,32 @@ const Index = () => {
               
               Important formatting rules:
               1. Use proper markdown syntax with clear section hierarchy
-              2. For any code blocks or commands, use triple backticks with the appropriate language specification, e.g.:
+              2. For any code blocks or commands, use triple backticks with the appropriate language specification
+              3. For installation steps, always format commands like this:
                  \`\`\`bash
+                 # Clone the repository
+                 git clone <repository-url>
+                 cd <project-name>
+
+                 # Install dependencies
                  npm install
+                 # or using pnpm
+                 pnpm install
+
+                 # Set up environment variables
+                 cp .env.example .env
+
+                 # Start development server
                  npm run dev
+                 # or using pnpm
+                 pnpm dev
                  \`\`\`
-              3. For installation steps, always include:
-                 - Clear step numbering
-                 - Command blocks with 'bash' specification
-                 - Environment setup instructions if needed
-                 - Both npm and pnpm commands where applicable
+              4. For environment variables, use this format:
+                 \`\`\`env
+                 PORT=3000
+                 MONGODB_URI=your_mongodb_connection_string
+                 JWT_SECRET=your_jwt_secret
+                 \`\`\`
               
               Always start with:
               1. A clear, descriptive title
