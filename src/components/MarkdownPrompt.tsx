@@ -98,7 +98,7 @@ const Index = () => {
       const response = await axios.post(
         "https://glhf.chat/api/openai/v1/chat/completions",
         {
-          model: "hf:meta-llama/Llama-3.3-70B-Instruct",
+          model: "hf:deepseek-ai/DeepSeek-R1",
           messages: [
             {
               role: "system",
